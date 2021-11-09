@@ -1,5 +1,5 @@
 const { hash } = require('bcryptjs');
-const User = require('../models/User');
+const User = require('../models/user');
 
 module.exports = {
   async create(req, res) {
