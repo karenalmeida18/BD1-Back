@@ -9,4 +9,6 @@ const connection = new Sequelize(dbConfig);
 User.init(connection);
 Animals.init(connection);
 
+Animals.associate(connection.models);
+
 module.exports = connection;
