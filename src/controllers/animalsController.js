@@ -1,4 +1,4 @@
-const Animals = require('../models/Animals');
+const Animals = require('../models/animals');
 
 module.exports = {
   async create(req, res) {
