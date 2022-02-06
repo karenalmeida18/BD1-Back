@@ -23,7 +23,7 @@ routes.put('/user/update', ensureAuthMiddleware, UserController.update);
 routes.post('/user/login', SessionController.create);
 
 // Animals
-routes.post('/animals/register', ensureAuthMiddleware ,AnimalsController.create);
+routes.post('/animals/register', ensureAuthMiddleware, AnimalsController.create);
 routes.get('/animals/list', AnimalsController.read);
 routes.delete('/animals/delete/:id', ensureAuthMiddleware, AnimalsController.delete);
 routes.put('/animals/update', ensureAuthMiddleware, AnimalsController.update);
