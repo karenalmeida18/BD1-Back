@@ -3,12 +3,15 @@ const dbConfig = require('../config/database');
 
 const User = require('../models/user');
 const Animals = require('../models/animals');
+const Messages = require('../models/messages');
 
 const connection = new Sequelize(dbConfig);
 
 User.init(connection);
 Animals.init(connection);
+Messages.init(connection);
 
 Animals.associate(connection.models);
+Messages.associate(connection.models);
 
 module.exports = connection;

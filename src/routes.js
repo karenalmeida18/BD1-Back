@@ -3,6 +3,7 @@ const { Router } = require('express');
 const UserController = require('./controllers/userController');
 const SessionController = require('./controllers/sessionController');
 const AnimalsController = require('./controllers/animalsController');
+const MessagesController = require('./controllers/messagesController');
 
 const ensureAuthMiddleware = require('./middlewares/ensureAuth');
 
@@ -26,5 +27,10 @@ routes.post('/animals/register', ensureAuthMiddleware ,AnimalsController.create)
 routes.post('/animals/list', AnimalsController.read);
 routes.delete('/animals/delete/:id', ensureAuthMiddleware, AnimalsController.delete);
 routes.put('/animals/update', ensureAuthMiddleware, AnimalsController.update);
+
+// Messages
+routes.post('/messages/register/:id', ensureAuthMiddleware ,MessagesController.create);
+routes.post('/messages/list/:id', MessagesController.read);
+routes.delete('/messages/delete/:id', ensureAuthMiddleware, MessagesController.delete);
 
 module.exports = routes;
