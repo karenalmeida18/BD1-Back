@@ -24,7 +24,7 @@ routes.post('/user/login', SessionController.create);
 
 // Animals
 routes.post('/animals/register', ensureAuthMiddleware ,AnimalsController.create);
-routes.post('/animals/list', AnimalsController.read);
+routes.get('/animals/list', AnimalsController.read);
 routes.delete('/animals/delete/:id', ensureAuthMiddleware, AnimalsController.delete);
 routes.put('/animals/update', ensureAuthMiddleware, AnimalsController.update);
 
