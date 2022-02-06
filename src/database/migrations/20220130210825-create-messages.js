@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('messages', {
       id: {
         type: Sequelize.INTEGER,
@@ -24,24 +24,19 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      animal_id:{
+      animal_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'animals', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      
+
 
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('animals');
-     */
+    await queryInterface.dropTable('messages');
   }
 };
