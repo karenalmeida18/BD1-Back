@@ -29,8 +29,8 @@ routes.delete('/animals/delete/:id', ensureAuthMiddleware, AnimalsController.del
 routes.put('/animals/update', ensureAuthMiddleware, AnimalsController.update);
 
 // Messages
-routes.post('/messages/register/:id', ensureAuthMiddleware ,MessagesController.create);
-routes.get('/messages/list', ensureAuthMiddleware ,MessagesController.read);
+routes.post('/messages/register/:animal_id', ensureAuthMiddleware, MessagesController.create);
+routes.get('/messages/list', ensureAuthMiddleware, MessagesController.read);
 routes.delete('/messages/delete/:id', ensureAuthMiddleware, MessagesController.delete);
 
 module.exports = routes;

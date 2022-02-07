@@ -33,7 +33,6 @@ module.exports = {
       if (allAnimals?.length === 0) return res.status(404).json({ msg: 'No Animals found' });
       return res.status(200).json(allAnimals);
     } catch (error) {
-      console.log({ error });
       return res.status(500).json({ msg: 'Internal server error' });
     }
   },

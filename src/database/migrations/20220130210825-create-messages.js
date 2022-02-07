@@ -15,14 +15,7 @@ module.exports = {
       },
       date: {
         type: Sequelize.DATE,
-        allowNull: false,
-      },
-      user_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'users', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        defaultValue: Sequelize.NOW,
       },
       animal_id: {
         type: Sequelize.INTEGER,
@@ -31,8 +24,13 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-
-
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
     });
   },
 

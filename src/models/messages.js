@@ -12,7 +12,7 @@ class Messages extends Model {
   
   static associate(models) {
     this.belongsTo(models.User, { foreignKey: 'user_id', as: 'users' });
-    this.belongsTo(models.Animals, { foreignKey: 'animals_id', as: 'animals'});
+    this.belongsTo(models.Animals, { foreignKey: 'animal_id', as: 'animals'});
   }
 }
 

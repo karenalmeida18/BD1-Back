@@ -9,11 +9,12 @@ module.exports = {
     try {
       if (!message) return res.status(400).json({ msg: 'message is required' });
       if (!user_id) return res.status(400).json({ msg: 'user id is required' });
+      if (!animal_id) return res.status(400).json({ msg: 'animal id is required' });
 
       const messages = await Messages.create({
         message,
-        user_id,
         animal_id,
+        user_id,
       });
 
       return res.status(200).json(messages);
