@@ -26,7 +26,19 @@ module.exports = {
   async read(req, res) {
     const { id: user_id } = req.user;
     try {
-      const allMessages = await Messages.findAll({ where: { user_id }});
+      const allMessages = await Messages.findAll({
+        where: { user_id },
+        include: [{
+          association: 'users',
+          attributes: ['name', 'telephone'],
+          required: false,
+        },
+        {
+          association: 'answers',
+          required: false
+        }
+        ],
+      });
       if (allMessages.length === 0) return res.status(404).json({ msg: 'No Messages found' });
       return res.status(200).json(allMessages);
     } catch (error) {

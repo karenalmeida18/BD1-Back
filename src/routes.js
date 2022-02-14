@@ -4,6 +4,7 @@ const UserController = require('./controllers/userController');
 const SessionController = require('./controllers/sessionController');
 const AnimalsController = require('./controllers/animalsController');
 const MessagesController = require('./controllers/messagesController');
+const AnswerController = require('./controllers/anwserController');
 
 const ensureAuthMiddleware = require('./middlewares/ensureAuth');
 
@@ -32,5 +33,8 @@ routes.put('/animals/update', ensureAuthMiddleware, AnimalsController.update);
 routes.post('/messages/register/:animal_id', ensureAuthMiddleware, MessagesController.create);
 routes.get('/messages/list', ensureAuthMiddleware, MessagesController.read);
 routes.delete('/messages/delete/:id', ensureAuthMiddleware, MessagesController.delete);
+
+// Answers
+routes.post('/answers/register/:message_id', ensureAuthMiddleware, AnswerController.create);
 
 module.exports = routes;
