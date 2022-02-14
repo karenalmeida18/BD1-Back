@@ -13,6 +13,7 @@ class Messages extends Model {
   static associate(models) {
     this.belongsTo(models.User, { foreignKey: 'user_id', as: 'users' });
     this.belongsTo(models.Animals, { foreignKey: 'animal_id', as: 'animals'});
+    this.hasMany(models.Answer, { foreignKey: 'message_id', as: 'answers' });
   }
 }
 
