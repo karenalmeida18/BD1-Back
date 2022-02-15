@@ -2,18 +2,20 @@ const Messages = require('../models/messages');
 
 module.exports = {
   async create(req, res) {
-    const { message, user_id } = req.body;
+    const { message, user_id, send_by_user_id } = req.body;
     const { animal_id } = req.params;
 
     try {
       if (!message) return res.status(400).json({ msg: 'message is required' });
       if (!user_id) return res.status(400).json({ msg: 'user id is required' });
+      if (!send_by_user_id) return res.status(400).json({ msg: 'send by user id is required' });
       if (!animal_id) return res.status(400).json({ msg: 'animal id is required' });
 
       const messages = await Messages.create({
         message,
         animal_id,
         user_id,
+        send_by_user_id
       });
 
       return res.status(200).json(messages);
@@ -27,11 +29,7 @@ module.exports = {
     try {
       const allMessages = await Messages.findAll({
         where: { user_id },
-        include: [{
-          association: 'users',
-          attributes: ['name', 'telephone'],
-          required: false,
-        },
+        include: [
         {
           association: 'answers',
           required: false

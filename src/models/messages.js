@@ -4,6 +4,7 @@ class Messages extends Model {
   static init(connection) {
     super.init({
       message: DataTypes.STRING,
+      send_by_user_id: DataTypes.STRING,
       date: DataTypes.DATE,
     }, {
       sequelize: connection,

@@ -31,6 +31,10 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
+      send_by_user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
     });
   },
 
