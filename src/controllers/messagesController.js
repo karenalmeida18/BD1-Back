@@ -2,9 +2,8 @@ const Messages = require('../models/messages');
 
 module.exports = {
   async create(req, res) {
-    const { message } = req.body;
+    const { message, user_id } = req.body;
     const { animal_id } = req.params;
-    const { id: user_id } = req.user;
 
     try {
       if (!message) return res.status(400).json({ msg: 'message is required' });
